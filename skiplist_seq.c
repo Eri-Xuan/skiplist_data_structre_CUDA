@@ -56,9 +56,28 @@ void insert(SkipList *sl, int value) {
 
 // }
 
-// void delete(SkipList *sl, int value) {
-
-// }
+void delete(SkipList *sl, int value) {
+    Node *update[MAX_LEVEL];
+    Node *node = sl->head;
+    for (int i = sl->head->level - 1; i >= 0; i--) {
+        while (node->next[i] != NULL && node->next[i]->value < value) {
+            node = node->next[i];
+        }
+        update[i] = node;
+    }
+    node = node->next[0];
+    if (node == NULL || node->value != value) {
+        return;
+    }
+    for (int i = 0; i < node->level; i++) {
+        if (update[i]->next[i] != node) {
+            break;
+        }
+        update[i]->next[i] = node->next[i];
+    }
+    free(node->next);
+    free(node);
+}
 
 void printSkipList(SkipList *sl) {
     printf("SkipList:\n");

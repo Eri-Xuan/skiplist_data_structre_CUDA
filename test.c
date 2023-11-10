@@ -15,6 +15,8 @@ int main(void) {
         insert(&sl, arr[i]);
     }
     printSkipList(&sl);
+    delete(&sl ,2);
+    printSkipList(&sl);
 
     return 0;
 }

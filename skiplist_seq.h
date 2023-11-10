@@ -45,7 +45,7 @@ void insert(SkipList *sl, int value);
 // int contains(SkipList *sl, int value);
 
 /* delete a value from the skip list */
-// void delete(SkipList *sl, int value);
+void delete(SkipList *sl, int value);
 
 /* print the skip list */
 void printSkipList(SkipList *sl);
