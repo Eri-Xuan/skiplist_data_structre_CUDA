@@ -17,6 +17,7 @@ int main(void) {
     printSkipList(&sl);
     delete(&sl ,2);
     printSkipList(&sl);
+    printf("contains 3: %d, contains 2: %d\n",contains(&sl,3),contains(&sl,2));
 
     return 0;
 }

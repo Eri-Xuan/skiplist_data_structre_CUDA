@@ -52,9 +52,19 @@ void insert(SkipList *sl, int value) {
 
 }
 
-// int contains(SkipList *sl, int value) {
-
-// }
+// 1 for contains, 0 for not contains
+int contains(SkipList *sl, int value) {
+    Node *node = sl -> head;
+    Node *next = NULL;
+    for (int i = sl-> head ->level - 1; i >= 0; i--) {
+        while ( (next = node->next[i]) && (next != NULL) && next->value < value) {
+            node = next;
+        }
+        if (next && next->value == value)
+            return 1;
+    }
+    return 0;
+}
 
 void delete(SkipList *sl, int value) {
     Node *update[MAX_LEVEL];

@@ -42,7 +42,7 @@ void initSkipList(SkipList *sl);
 void insert(SkipList *sl, int value);
 
 /* check if a value is in the skip list */
-// int contains(SkipList *sl, int value);
+int contains(SkipList *sl, int value);
 
 /* delete a value from the skip list */
 void delete(SkipList *sl, int value);
